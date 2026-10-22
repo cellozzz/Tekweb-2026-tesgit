@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- 
+  ==========================================================================
+  KETERANGAN UTAMA:
+  File ini berisi gabungan materi Web Development dari Week 1 sampai Week 3:
+  - Week 1: Struktur dasar & tag semantik HTML5.
+  - Week 2: Styling visual, Flexbox, dan Dark Mode menggunakan CSS3.
+  - Week 3: Manipulasi DOM, Event Listener, dan Validasi Form dengan JavaScript.
+  ==========================================================================
+-->
+
+<html lang="id">
+<!-- Tag <html> adalah elemen utama (root) yang membungkus seluruh dokumen web. 
+     Attributes lang="id" memberi tahu browser/mesin pencari bahwa bahasa utamanya adalah Bahasa Indonesia. -->
+
+<head>
+    <!-- Tag <head> digunakan untuk menyimpan metadata (informasi tentang halaman web) 
+         yang tidak ditampilkan langsung pada layar utama browser. -->
+
+    <meta charset="UTF-8">
+    <!-- Encoding UTF-8 memastikan semua karakter teks (termasuk simbol dan huruf khusus) terbaca dengan benar. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Viewport berguna untuk merekayasa tampilan agar responsif (menyesuaikan ukuran layar HP, Tablet, maupun Laptop). -->
+
+    <title>Praktikum Web: Week 1 - Week 3</title>
+    <!-- Tag <title> menentukan judul yang akan muncul di tab browser pengguna. -->
+
+
+    <!-- ==========================================================================
+         WEEK 2: CSS (CASCADING STYLE SHEETS) - STYLING & DESAIN VISUAL
+         Fungsi: Mengatur tata letak, warna, font, dan responsivitas halaman web.
+         ========================================================================== -->
+    <style>
+        /* 1. RESET CSS DASAR 
+           Guna: Menghapus margin & padding bawaan browser agar tampilan konsisten di semua aplikasi browser. */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Memastikan padding dan border tidak menambah lebar total elemen */
+            font-family: Arial, sans-serif; /* Menentukan jenis font utama */
+        }
+
+        /* 2. STYLING ELEMEN BODY (LATAR BELAKANG HALAMAN)
+           Guna: Mengatur warna dasar halaman dan animasi transisi saat berganti tema. */
+        body {
+            background-color: #f0f2f5; /* Warna abu-abu muda lembut untuk mode terang */
+            color: #333; /* Warna teks abu-abu gelap agar nyaman dibaca */
+            padding: 20px; /* Jarak antara tepi browser dengan isi konten */
+            transition: background 0.3s, color 0.3s; /* Efek halus selama 0.3 detik saat ubah Dark Mode */
+        }
+
+        /* 3. STYLING HEADER (WEEK 1 & 2)
+           Guna: Membuat area judul utama bergelombang/gradient agar menarik secara visual. */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Warna gradasi biru */
+            color: white; /* Warna teks judul menjadi putih */
+            text-align: center; /* Meratakan teks ke tengah */
+            padding: 30px; /* Memberi ruang di dalam kotak header */
+            border-radius: 10px; /* Membuat sudut-sudut header menjadi melengkung */
+            margin-bottom: 20px; /* Jarak bawah header ke konten utama */
+        }
+
+        /* 4. TATA LETAK FLEXBOX PADA MAIN (WEEK 2)
+           Guna: Memposisikan seksi-seksi konten secara rapi vertikal dengan jarak yang sama. */
+        main {
+            max-width: 800px; /* Batas lebar maksimal agar konten tidak terlalu lebar di monitor besar */
+            margin: 0 auto; /* Trik CSS untuk menempatkan posisi elemen secara otomatis di tengah layar */
+            display: flex; /* Mengaktifkan modul Flexbox */
+            flex-direction: column; /* Menyusun kartu-kartu konten secara menurun (atas ke bawah) */
+            gap: 15px; /* Jarak otomatis sebesar 15px antar kartu konten */
+        }
+
+        /* 5. STYLING DESAIN KARTU / CARD LAYOUT (WEEK 2)
+           Guna: Membungkus setiap materi ke dalam kotak putih berbayangan modern. */
+        section {
+            background: white; /* Warna latar kartu */
+            padding: 20px; /* Jarak di dalam kartu */
+            border-radius: 8px; /* Lengkungan sudut kartu */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan tipis di sekeliling kartu agar tampak timbul */
+        }
+
+        h2 {
+            color: #1e3c72; /* Warna judul sub-materi */
+            margin-bottom: 10px; /* Jarak judul ke paragraf di bawahnya */
+        }
+
+        ul {
+            margin-left: 20px; /* Indentasi titik bullet points */
+            line-height: 1.6; /* Jarak antar baris teks agar tidak terlalu rapat */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* 6. STYLE KHUSUS TEMA GELAP / DARK MODE (WEEK 2 & 3)
+           Guna: Class ini akan diaktifkan oleh JavaScript ketika pengguna menekan tombol Dark Mode. */
+        body.dark-mode {
+            background-color: #121212; /* Latar belakang menjadi hitam gelap */
+            color: #e0e0e0; /* Teks berubah menjadi putih terang */
+        }
+
+        body.dark-mode section {
+            background-color: #1e1e1e; /* Kotak kartu berubah menjadi abu-abu gelap */
+            color: #e0e0e0;
+        }
+
+        body.dark-mode h2 {
+            color: #64b5f6; /* Warna judul berubah jadi biru muda terang agar kontras */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================================================
+         WEEK 1: HTML5 (HYPERTEXT MARKUP LANGUAGE) - STRUKTUR DOKUMEN & KONTEN
+         Fungsi: Membangun fondasi/kerangka utama yang menampung teks, gambar, & form.
+         ========================================================================== -->
+
+    <!-- Tag <header> adalah elemen semantik untuk menampung judul utama atau navigasi situs. -->
+    <header id="mainHeader">
+        <!-- Tag <h1> adalah heading tingkat tertinggi, digunakan khusus untuk judul paling utama. -->
+        <h1>Profil Praktikum Web</h1>
+        
+        <!-- Tag <p> digunakan untuk membuat paragraf teks biasa. -->
+        <p>Integrasi Materi Week 1 sampai Week 3</p>
+
+        <!-- Catatan: Tombol ganti tema (Dark Mode) akan disisipkan di sini secara otomatis melalui JavaScript. -->
+    </header>
+
+    <!-- Tag <main> penanda bahwa area ini berisi konten inti/utama dari dokumen web. -->
+    <main>
+
+        <!-- Tag <section> digunakan untuk mengelompokkan konten berdasarkan topik/bab tertentu. -->
+        <section>
+            <h2>Materi Week 1: HTML5</h2>
+            <!-- Tag <code> digunakan untuk menampilkan potongan format kode di dalam paragraf. -->
+            <p>Memahami struktur dasar tag HTML, hirarki elemen, serta penulisan komentar menggunakan sintaks <code>&lt;!-- komentar --&gt;</code>.</p>
+        </section>
+
+        <section>
+            <h2>Materi Week 2: CSS3</h2>
+            <!-- Tag <ul> (Unordered List) dan <li> (List Item) untuk membuat daftar poin/bullet points. -->
+            <ul>
+                <li>Mengatur tata letak halaman secara fleksibel dengan Flexbox</li>
+                <li>Memberikan skema warna, efek bayangan, dan gaya kartu (Card Layout)</li>
+                <li>Menyediakan gaya tampilan terpisah untuk Mode Terang dan Mode Gelap</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Materi Week 3: JavaScript DOM</h2>
+            <p>Uji interaktivitas form di bawah ini:</p>
+            <br>
+            
+            <!-- Tag <input> tempat pengguna mengetik teks.
+                 Attribute id="userInput" digunakan sebagai 'alamat/kunci' agar bisa dibaca oleh JavaScript. -->
+            <input type="text" id="userInput" placeholder="Ketik pesan di sini..." style="padding: 8px; width: 65%;">
+            
+            <!-- Tag <button> adalah tombol aksi untuk memicu fungsi validasi JavaScript. -->
+            <button id="sendBtn" style="padding: 8px 12px; cursor: pointer;">Kirim Pesan</button>
+
+            <!-- Tag <p> kosong ini nanti diisi pesan balasan (merah/hijau) secara otomatis oleh JavaScript. -->
+            <p id="responseMsg" style="margin-top: 10px; font-weight: bold;"></p>
+        </section>
+
+    </main>
+
+    <!-- Tag <footer> untuk bagian kaki halaman (penjelasan hak cipta atau informasi pembuat). -->
+    <footer>
+        <p>&copy; 2026 - Latihan Pemrograman Web</p>
+    </footer>
+
+
+    <!-- ==========================================================================
+         WEEK 3: JAVASCRIPT (DOM MANIPULATION & EVENT HANDLING)
+         Fungsi: Memberikan logika, interaktivitas, dan respon atas aksi pengguna.
+         ========================================================================== -->
+    <script>
+        // ----------------------------------------------------------------------
+        // FITUR 1: MEMBUAT TOMBOL DARK MODE & MENGUBAH TEMA
+        // ----------------------------------------------------------------------
+
+        // 1. Mengambil elemen header berdasarkan ID 'mainHeader' dari HTML
+        const header = document.getElementById('mainHeader');
+
+        // 2. document.createElement('button') -> Memuat elemen tombol baru secara dinamis lewat JS
+        const themeBtn = document.createElement('button');
+        themeBtn.innerText = '🌙 Toggle Dark / Light Mode'; // Menentukan teks di dalam tombol
+        
+        // Mengatur gaya (styling) tombol secara langsung lewat JavaScript
+        themeBtn.style.marginTop = '15px';
+        themeBtn.style.padding = '8px 15px';
+        themeBtn.style.cursor = 'pointer';
+
+        // 3. header.appendChild(...) -> Memasukkan tombol baru tadi ke dalam elemen <header> HTML
+        header.appendChild(themeBtn);
+
+        // 4. addEventListener('click', ...) -> Menunggu & mendengarkan tindakan pengguna saat menekan tombol
+        themeBtn.addEventListener('click', function() {
+            // document.body.classList.toggle('dark-mode') -> Memeriksa elemen <body>:
+            // - Jika class 'dark-mode' belum ada, maka ditambahkan (berubah jadi Mode Gelap).
+            // - Jika class 'dark-mode' sudah ada, maka dihapus (kembali ke Mode Terang).
+            document.body.classList.toggle('dark-mode');
+        });
+
+
+        // ----------------------------------------------------------------------
+        // FITUR 2: LOGIKA VALIDASI INPUT FORM & RESPON TEKS
+        // ----------------------------------------------------------------------
+
+        // Mengambil referensi elemen HTML berdasarkan ID masing-masing
+        const sendBtn = document.getElementById('sendBtn');
+        const userInput = document.getElementById('userInput');
+        const responseMsg = document.getElementById('responseMsg');
+
+        // Menjalankan fungsi logika ketika tombol 'Kirim Pesan' diklik
+        sendBtn.addEventListener('click', function() {
+            // userInput.value -> Mengambil teks yang diketik oleh pengguna di kolom input.
+            // .trim() -> Menghapus spasi berlebih di awal dan akhir teks agar input spasi kosong tetap terdeteksi.
+            const teksPesan = userInput.value.trim();
+
+            // LOGIKA PERCABANGAN (IF - ELSE)
+            if (teksPesan === '') {
+                // KONDISI 1: Jika kolom input kosong saat tombol diklik
+                responseMsg.style.color = 'red'; // Ubah warna teks respon menjadi merah
+                responseMsg.innerText = 'Peringatan: Kolom input tidak boleh kosong!'; // Tampilkan pesan error
+            } else {
+                // KONDISI 2: Jika kolom input terisi teks
+                responseMsg.style.color = 'green'; // Ubah warna teks respon menjadi hijau
+                responseMsg.innerText = 'Berhasil! Pesan kamu: "' + teksPesan + '"'; // Tampilkan pesan sukses
+                
+                userInput.value = ''; // Mengosongkan kembali kolom input setelah berhasil dikirim
+            }
+        });
+    </script>
+
+</body>
+</html>

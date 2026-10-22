@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+
+    <div id="angka" class="text-center">1</div>
+
+    <div class="flex flex-wrap">
+      <button onclick="kurang()" class="w-1/2 bg-red-200">Kurang</button>
+      <button onclick="tambah()" class="w-1/2 bg-green-200">Tambah</button>
+    </div>
+
+    <script>
+      var count = 1;
+
+      function tambah() {
+        count++;
+        document.getElementById("angka").innerHTML = count;
+      }
+
+      function kurang() {
+        count--;
+        document.getElementById("angka").innerHTML = count;
+      }
+    </script>
+
+  </body>
+</html>

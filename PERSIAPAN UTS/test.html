@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="product-1">
+                <td>1</td>
+                <td>Baju</td>
+                <td>10000</td>
+                <td><button onclick="getName(this)">Get Name</button></td>
+            </tr>
+            <tr id="product-2">
+                <td>2</td>
+                <td>Celana</td>
+                <td>20000</td>
+                <td><button onclick="getName(this)">Get Name</button></td>
+            </tr>
+            <tr id="product-3">
+                <td>3</td>
+                <td>Sepatu</td>
+                <td>30000</td>
+                <td><button onclick="getName('this')">Get Name</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    $(document).ready(function(){
+        var table = $('table tbody #product-3').children('td').eq(2).text();
+        console.log(table);
+    });
+    function getName(e){
+        // var row=$(e).parent().parent();
+        // var name=row.children('td').eq(1).text();
+        // console.log(name);
+        // alert(name);
+        var row=$('table tbody #product-'+e);
+        var row=$(e).parent().parent();
+        var name=row.children('td').eq(1).text();
+        console.log(name);
+        alert(name);
+    }
+</script>
+</html>

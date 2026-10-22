@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UJI COBA UTS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+</head>
+<body>
+    <div class="bg-amber-300 p-2 flex items-center gap-6">
+        
+        <div class="bg-white p-2 flex items-center justify-center">
+            <img src="logo.jpeg" alt="Logo" class="w-16 h-16">
+        </div>
+
+        <a href="#" class="font-bold text-black">Home</a>
+        <a href="#" class="font-bold text-black">Product</a>
+    </div>
+
+    <h1 class="text-3xl font-bold p-5 bg-green-100">Product</h1>
+
+    <div class="flex gap-4 flex-wrap bg-yellow-100 p-6">
+
+        <div>
+            <label class="block font-semibold">ID Product :</label>
+            <input type="text" class="rounded-md p-1 w-60 border border-gray-300">
+        </div>
+        <div>
+            <label class="block font-semibold">Title :</label>
+            <input type="text" class="rounded-md p-1 w-60 border border-gray-300">
+        </div>
+        <div>
+            <label class="block font-semibold">Category :</label>
+            <input type="text" class="rounded-md p-1 w-60 border border-gray-300">
+        </div>
+        <div>
+            <label class="block font-semibold">Price :</label>
+            <input type="text" class="rounded-md p-1 w-60 border border-gray-300">
+        </div>
+        <div>
+            <label class="block font-semibold">Rating :</label>
+            <input type="text" class="rounded-md p-1 w-60 border border-gray-300">
+        </div>
+    </div>
+
+    <div class=" p-4 bg-pink-100">
+        <button class="bg-blue-500 text-white font-semibold px-4 py-2 rounded-lg">
+            Save Product
+        </button>
+    </div>
+
+    <div class="bg-blue-100 p-4">
+        <table>
+            <thead class="bg-orange-100">
+                <tr class="bg-slate-200">
+                <th class="px-4 bg-pink-100">ID</th>
+                <th class="px-4 bg-magenta-100">Title</th>
+                <th class="px-4 bg-cyan-100">Category</th>
+                <th class="px-4 bg-green-100">Price</th>
+                <th class="px-4 bg-yellow-100">Rating</th>
+                <th class="px-4 bg-red-100">Action</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'https://dummyjson.com/products',
+                type: 'GET',
+                success: function(response) {
+                    let products = response.products;
+                    let rows = '';
+
+                    $.each(products, function(index, product) {
+                        rows += `
+                            <tr class="border-b">
+                                <td class="py-3 px-4">${product.id}</td>
+                                <td class="py-3 px-4">${product.title}</td>
+                                <td class="py-3 px-4">${product.category}</td>
+                                <td class="py-3 px-4">${product.price}</td>
+                                <td class="py-3 px-4">${product.rating}</td>
+                                <td class="py-3 px-4 whitespace-nowrap">
+                                    <a href="#" class="text-amber-400 font-semibold mr-2">Edit</a>
+                                    <a href="#" class="text-red-400 font-semibold">Delete</a>
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                    $('#table-body').html(rows);
+                },
+            });
+        });
+    </script>
+</body>
+</html>

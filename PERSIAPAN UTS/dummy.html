@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS - Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+</head>
+<body class="p-4">
+
+    <!-- Navbar -->
+    <div class="bg-amber-300 p-2 flex items-center gap-6">
+        <div class="bg-white p-2 flex items-center justify-center">
+            <img src="logo.jpeg" alt="Logo" class="w-16 h-16">
+        </div>
+        <a href="#" class="font-bold text-black">Home</a>
+        <a href="#" class="font-bold text-black">Product</a>
+    </div>
+
+    <!-- Judul -->
+    <h1 class="text-4xl font-bold my-6">Product</h1>
+
+    <!-- Form Input Produk -->
+    <div class="flex gap-4 mb-4 flex-wrap ">
+        <div>
+            <label class="block font-bold mb-1">ID Product :</label>
+            <input type="text" class="border border-gray-300 rounded-lg p-2 w-48">
+        </div>
+        <div>
+            <label class="block font-bold mb-1">Title :</label>
+            <input type="text" class="border border-gray-300 rounded-lg p-2 w-56">
+        </div>
+        <div>
+            <label class="block font-bold mb-1">Category :</label>
+            <select class="border border-gray-300 rounded-lg p-2 w-48 bg-white">
+                <option value=""></option>
+                <option value="beauty">beauty</option>
+            </select>
+        </div>
+        <div>
+            <label class="block font-semibold mb-1">Price :</label>
+            <input type="text" class="border border-gray-300 rounded-lg p-2 w-48">
+        </div>
+        <div>
+            <label class="block font-semibold mb-1">Rating :</label>
+            <input type="text" class="border border-gray-300 rounded-lg p-2 w-48">
+        </div>
+    </div>
+
+    <!-- Tombol Simpan -->
+    <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg mb-8">
+        Save Product
+    </button>
+
+    <!-- Tabel Produk -->
+    <div class="max-w-3xl">
+        <table class="w-full text-left">
+            <thead>
+                <tr class="bg-slate-200">
+                    <th class="p-3">ID</th>
+                    <th class="p-3">Title</th>
+                    <th class="p-3">Category</th>
+                    <th class="p-3">Price</th>
+                    <th class="p-3">Rating</th>
+                    <th class="p-3">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p-3">1</td>
+                    <td class="p-3">Essence Mascara Lash Princess</td>
+                    <td class="p-3">beauty</td>
+                    <td class="p-3">9.99</td>
+                    <td class="p-3">2.56</td>
+                    <td class="p-3">
+                        <a href="#" class="text-amber-400 font-semibold mr-2">Edit</a>
+                        <a href="#" class="text-red-400 font-semibold">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="p-3">2</td>
+                    <td class="p-3">Eyeshadow Palette with</td>
+                    <td class="p-3">beauty</td>
+                    <td class="p-3">19.99</td>
+                    <td class="p-3">2.86</td>
+                    <td class="p-3">
+                        <a href="#" class="text-amber-400 font-semibold mr-2">Edit</a>
+                        <a href="#" class="text-red-400 font-semibold">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="p-3">3</td>
+                    <td class="p-3">Powder Canister</td>
+                    <td class="p-3">beauty</td>
+                    <td class="p-3">14.99</td>
+                    <td class="p-3">4.64</td>
+                    <td class="p-3">
+                        <a href="#" class="text-amber-400 font-semibold mr-2">Edit</a>
+                        <a href="#" class="text-red-400 font-semibold">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="p-3">4</td>
+                    <td class="p-3">Red Lipstick</td>
+                    <td class="p-3">beauty</td>
+                    <td class="p-3">12.99</td>
+                    <td class="p-3">4.36</td>
+                    <td class="p-3">
+                        <a href="#" class="text-amber-400 font-semibold mr-2">Edit</a>
+                        <a href="#" class="text-red-400 font-semibold">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="p-3">5</td>
+                    <td class="p-3">Red Nail Polish</td>
+                    <td class="p-3">beauty</td>
+                    <td class="p-3">8.99</td>
+                    <td class="p-3">4.32</td>
+                    <td class="p-3">
+                        <a href="#" class="text-amber-400 font-semibold mr-2">Edit</a>
+                        <a href="#" class="text-red-400 font-semibold">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

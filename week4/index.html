@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="judul">Hello World</h1>
+    <button onclick="alertJudul()">Alert Judul</button>
+</body>
+<script>
+
+
+    var x=1;
+    console.log(x);
+    x=x+2;
+    console.log(x);
+    x=x+"3";
+    console.log(x);
+    x=x+"4";
+    console.log(x);
+
+    var y={nama:"Marcello", umur:19, hobi:"sleep"};
+    console.log(y);
+    console.log(y.nama);
+
+    var z=["Marcello", "Ivan", "Bambang", "Wahyu"];
+    console.log(z[1]);
+
+    var a=[{nama:"Ivan",umur:10,hobi:"tidur"},{nama:"Bambang",umur:50,hobi:"kerja"}];
+    console.log(a[1].hobi);
+
+    alert(`${a[1].nama} hobinya ${a[1].hobi} selama ${a[1].umur}`);
+    b+=1`selama ${a[1].umur} tahun`;
+    //alert(b);
+
+    // var c=confirm("Munculkan huruf A?");
+    // if(c){
+    //     alert("A");
+    // }
+
+    var c=prompt("Masukkan nama anda");
+    alert(`Nama anda adalah ${c}`);
+
+
+        function alertJudul() {
+            var judul=document.getElementById("judul");
+            alert(judul.innerHTML);
+        }
+</script>
+</html>

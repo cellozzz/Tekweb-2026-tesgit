@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div>
+        <input type="text" id="task" placeholder="Task" style="border: none;">
+        <button id="tambah" style="border: none; background: none;">Tambah</button>
+    </div>
+
+    <div id="daftar"></div>
+
+    <script>
+        $(document).ready(function(){
+            
+            $("#tambah").on('click', function(){
+                var teks = $("#task").val();
+                
+                if (teks != "") {
+                    $("#daftar").append('<div>' + teks + ' <span class="hapus">X</span></div>');
+                }
+                
+                $("#task").val('');
+            });
+
+            $("#daftar").on('click', '.hapus', function(){
+                $(this).parent().remove();
+            });
+
+        });
+    </script>
+
+</body>
+</html>

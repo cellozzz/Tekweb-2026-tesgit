@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+</head>
+<body>
+    <div>
+        <input type="text" id="inputTask" placeholder="Task">
+        <button id="tambah">Tambah</button> 
+    </div>
+
+    <div id="daftar"></div>
+
+    <script>
+        $(document).ready(function(){
+            
+            $("#tambah").on('click', function(){
+                var teks = $("#inputTask").val();
+                
+                if (teks != "") {
+                    $("#daftar").append('<div>' + teks + ' <span class="hapus">X</span></div>');
+                    
+                }
+                $("#inputTask").val('');
+            });
+
+            $("#daftar").on('click', '.hapus', function(){
+                $(this).parent().remove();
+            });
+
+        });
+    </script>
+
+</body>
+</html>

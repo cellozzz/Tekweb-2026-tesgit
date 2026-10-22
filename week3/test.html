@@ -1,0 +1,117 @@
+<!doctype html>
+<!-- class="dark": Mengaktifkan fitur Dark Mode sehingga atribut dark: di elemen anak dapat berjalan -->
+<html lang="id" class="dark">
+  <head>
+    <!-- Pengaturan encoding karakter standar HTML -->
+    <meta charset="UTF-8" />
+    
+    <!-- META VIEWPORT: Sangat penting untuk Web Responsif (RWD) agar tampilan menyesuaikan skala layar HP/Desktop (PPT Slide 3) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Mengimpor library Tailwind CSS v4 via CDN Play langsung ke browser (PPT Slide 4) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- CSS DIRECTIVE @THEME: Digunakan untuk membuat variabel warna/tema kustom milik sendiri (PPT Slide 5) -->
+    <style type="text/tailwindcss">
+      @theme {
+        /* Mendefinisikan warna 'clifford' yang nantinya dipanggil menggunakan class 'text-clifford' atau 'bg-clifford' */
+        --color-clifford: oklch(71.5% 0.143 215.221);
+      }
+    </style>
+  </head>
+  
+  <!-- min-h-screen: tinggi minimal seukuran layar, dark:bg-gray-900: warna background saat Mode Gelap aktif (PPT Slide 12) -->
+  <body class="bg-gray-100 dark:bg-gray-900 min-h-screen p-6 font-sans text-gray-800 dark:text-gray-100 transition-colors">
+
+    <!-- ==========================================
+         SECTION 1: HEADER RESPONSIF & DARK MODE
+         ========================================== -->
+    <!-- text-3xl: ukuran teks HP, md:text-5xl: ukuran teks saat layar medium/laptop, dark:text-yellow-400: warna teks di mode gelap (PPT Slide 5 & 12) -->
+    <h1 class="text-3xl font-bold underline text-clifford italic md:text-5xl dark:text-yellow-400 mb-6">
+      Hello world!
+    </h1>
+
+    <!-- ==========================================
+         SECTION 2: FLEXBOX & BREAKPOINT RESPONSIF
+         ========================================== -->
+    <!-- flex flex-col: susun vertikal di HP, md:flex-row: berubah jadi horizontal berdampingan di layar medium (PPT Slide 8)[cite: 3] -->
+    <!-- bg-yellow-500: background kuning, p-6: padding 24px, gap-4: memberi jarak antar kolom[cite: 3] -->
+    <div class="bg-yellow-500 dark:bg-yellow-600 w-full p-6 flex flex-col md:flex-row gap-4 rounded-lg shadow-md mb-8"> 
+        
+        <!-- w-full: lebar 100% di HP, md:w-1/2: lebar 50% di desktop (memperbaiki typo nd:w-1/3 menjadi md:w-1/2) (PPT Slide 8)[cite: 3] -->
+        <!-- bg-red-300: warna dasar, hover:bg-red-700: warna berubah saat kursor diarahkan ke atasnya (PPT Slide 7 & 9)[cite: 3] -->
+        <div class="w-full md:w-1/2 p-4 bg-red-300 hover:bg-red-700 hover:text-white md:bg-green-300 dark:md:bg-green-800 rounded transition-all">
+          <h2 class="font-bold mb-2">Kolom 1 (Responsif & Hover)</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta molestias necessitatibus aperiam maxime suscipit.</p>
+        </div>
+        
+        <!-- Kolom kedua dengan efek yang sama -->
+        <div class="w-full md:w-1/2 p-4 bg-blue-300 hover:bg-blue-700 hover:text-white md:bg-green-300 dark:md:bg-green-800 rounded transition-all">
+          <h2 class="font-bold mb-2">Kolom 2 (Responsif & Hover)</h2>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto labore, tempore corporis laudantium dolor placeat.</p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SECTION 3: TOMBOL UTILITY & STATE MODIFIERS
+         ========================================== -->
+    <!-- Wadah penampung tombol -->
+    <div class="mb-8 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+      <h2 class="text-xl font-bold mb-3">Tombol Utility & State Modifiers (PPT Slide 6, 7, 9)</h2>
+      
+      <!-- bg-blue-500: background biru dasar (PPT Slide 7)[cite: 3] -->
+      <!-- hover:bg-blue-700: warna saat kursor di atas tombol (PPT Slide 9)[cite: 3] -->
+      <!-- active:bg-blue-900: warna saat tombol diklik (PPT Slide 9)[cite: 3] -->
+      <!-- focus:ring-2: garis outline highlight saat tombol difokuskan/diakses keyboard (PPT Slide 9)[cite: 3] -->
+      <!-- py-2 px-4: padding vertikal 8px & horizontal 16px, rounded: sudut melengkung (PPT Slide 7)[cite: 3] -->
+      <button class="bg-blue-500 hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white font-bold py-2 px-4 rounded transition-colors cursor-pointer">
+        Tombol Interaktif
+      </button>
+    </div>
+
+    <!-- ==========================================
+         SECTION 4: KOMPONEN CARD
+         ========================================== -->
+    <div class="mb-8">
+      <h2 class="text-xl font-bold mb-3">Komponen Card (PPT Slide 10)</h2>
+      
+      <!-- max-w-sm: batas lebar maksimal card, rounded-lg: sudut melengkung besar, overflow-hidden: memotong gambar keluar bingkai (PPT Slide 10)[cite: 3] -->
+      <!-- shadow-lg: efek bayangan di bawah card, dark:bg-gray-800: background card saat dark mode (PPT Slide 10 & 12)[cite: 3] -->
+      <div class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+        
+        <!-- w-full: gambar menyesuaikan lebar card, h-48 object-cover: menjaga rasio gambar tidak terdistorsi -->
+        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/400x200" alt="Foto Profil">
+        
+        <!-- px-6 py-4: padding dalam isi card, text-center: teks di tengah (PPT Slide 10)[cite: 3] -->
+        <div class="px-6 py-4 text-center">
+          <!-- font-bold text-xl mb-2: judul/nama ukuran besar dan tebal (PPT Slide 10)[cite: 3] -->
+          <div class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Nama Pengguna</div>
+          <!-- text-gray-700: warna teks deskripsi (PPT Slide 10)[cite: 3] -->
+          <p class="text-gray-700 dark:text-gray-300 text-base">
+            Software Engineer
+          </p>
+        </div>
+        
+        <!-- px-6 pt-4 pb-6: padding bagian tombol bawah card (PPT Slide 10)[cite: 3] -->
+        <div class="px-6 pt-2 pb-6 text-center">
+          <a href="#" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
+            Lihat Profil
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SECTION 5: CATATAN DIREKTIF @APPLY (PPT Slide 11)
+         ========================================== -->
+    <!-- 
+      Penjelasan Direktif @apply (PPT Slide 11):
+      Jika kamu menggunakan Tailwind versi build (bukan Play CDN) dan ingin membuat class buatan sendiri agar tidak menulis ulang banyak class, kamu bisa menuliskannya di file CSS utama:
+      
+      .btn-primary {
+        @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+      }
+    -->
+
+  </body>
+</html>
